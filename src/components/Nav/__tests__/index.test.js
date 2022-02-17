@@ -8,6 +8,8 @@ const categories = [
 ];
 const mockCurrentCategory = jest.fn();
 const mockSetCurrentCategory = jest.fn();
+const mockContactSelected = jest.fn();
+const mockSetContactSelected = jest.fn();
 
 afterEach(cleanup);
 
@@ -66,4 +68,16 @@ describe("links are visible", () => {
     expect(getByTestId("link")).toHaveTextContent("Oh Snap!");
     expect(getByTestId("about")).toHaveTextContent("About me");
   });
+});
+
+it("renders", () => {
+  render(
+    <Nav
+      categories={categories}
+      setCurrentCategory={mockSetCurrentCategory}
+      currentCategory={mockCurrentCategory}
+      contactSelected={mockContactSelected}
+      setContactSelected={mockSetContactSelected}
+    />
+  );
 });
